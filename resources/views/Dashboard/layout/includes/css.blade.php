@@ -6,3 +6,4 @@
  <link hrefr="{{asset('dashboard/assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet')}}">
  <!-- Custom CSS -->
  <link href="{{asset('dashboard/css/style.min.css')}}" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

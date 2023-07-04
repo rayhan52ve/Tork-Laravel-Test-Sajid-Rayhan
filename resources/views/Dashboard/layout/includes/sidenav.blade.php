@@ -7,15 +7,17 @@
                 <!-- User Profile-->
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="{{route('dashboard')}}" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                            class="hide-menu">Dashboard</span></a></li>
+                            class="hide-menu">Dashboard</span></a>
+                </li>
+
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="{{asset('dashboard/pages-profile.html')}}" aria-expanded="false">
-                        <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
+                        href="{{route('user-info.create')}}" aria-expanded="false">
+                        <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Create User Info</span></a>
                 </li>
                 
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="{{asset('dashboard/pages-blank.html')}}" aria-expanded="false"><i
-                            class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
+                        href="{{route('user-info.index')}}" aria-expanded="false"><i
+                            class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">User Tnfo Table</span></a>
                 </li>
     
             </ul>

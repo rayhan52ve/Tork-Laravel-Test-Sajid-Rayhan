@@ -17,4 +17,5 @@
     <script src="{{asset('dashboard/assets/plugins/c3-master/c3.min.js')}}"></script>
     <!--Custom JavaScript -->
     <script src="{{asset('dashboard/js/pages/dashboards/dashboard1.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" ></script>
     <script src="{{asset('dashboard/js/custom.js')}}"></script>

@@ -12,7 +12,8 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        //
+        $user_info = User_info::get()->all();
+        return view('Dashboard.modules.user_info.index',compact('user_info'));
     }
 
     /**
@@ -20,7 +21,7 @@ class UserInfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dashboard.modules.user_info.create');
     }
 
     /**
@@ -28,7 +29,24 @@ class UserInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+                    'name'=>'required|max:15|min:2|string',
+                    'email' =>'required|email',
+                    'other_info'=>'required|max:500|min:5|string',
+                ],
+                    $message=[
+
+                              'email.email' => 'Please provide a valid email.',
+
+                             ]
+            );
+        
+        
+        
+                User_info::create($request->all());
+                session()->flash('msg','Event Created Successfully');
+                session()->flash('cls','success');
+                return redirect()->route('user-info.index');
     }
 
     /**
@@ -44,7 +62,7 @@ class UserInfoController extends Controller
      */
     public function edit(User_info $user_info)
     {
-        //
+        return view('Dashboard.modules.user_info.edit',compact('user_info'));
     }
 
     /**
@@ -52,7 +70,10 @@ class UserInfoController extends Controller
      */
     public function update(Request $request, User_info $user_info)
     {
-        //
+        $user_info->update($request->all());
+        session()->flash('msg','User Info Updated Successfully');
+        session()->flash('cls','success');
+        return redirect()->route('user-info.index');
     }
 
     /**
@@ -60,6 +81,9 @@ class UserInfoController extends Controller
      */
     public function destroy(User_info $user_info)
     {
-        //
+        $user_info->delete();
+        session()->flash('msg','User Info Deleted Successfully');
+        session()->flash('cls','danger');
+        return redirect()->back();
     }
 }
