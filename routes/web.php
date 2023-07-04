@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserInfoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Auth
+Route::match(['get','post'],'userlogin',[UserController::class,'login'])->name('login');
+Route::match(['get','post'],'register',[UserController::class,'register'])->name('register');
+
+
+Route::group(['middleware' => ['auth']],function(){
+
 Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
+Route::get('logout', [UserController::class,'logout'])->name('logout');
 
 Route::resource('user-info',UserInfoController::class);
+
+});
