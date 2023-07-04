@@ -26,6 +26,6 @@ Route::group(['middleware' => ['auth']],function(){
 Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::get('logout', [UserController::class,'logout'])->name('logout');
 
-Route::resource('user-info',UserInfoController::class);
+Route::resource('user-info',UserInfoController::class)->except('show');
 
 });
